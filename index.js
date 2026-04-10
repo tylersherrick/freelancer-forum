@@ -31,8 +31,18 @@ const people = Array.from({length: NUM_FREELANCERS}, () => ({
     price: getPrice(PRICE_RANGE.min, PRICE_RANGE.max)
 }));
 
-appData.innerHTML = people.map((person, index) => `
-        <div>
-            <p>${index + 1}: ${person.name} - ${person.occupation} - $${person.price}</p>
-        </div>
-    `).join("");
+const rateAverage = (people) => {
+    const total = people.reduce((acc, person) => acc + person.price, 0);
+    return total / people.length;
+};
+
+appData.innerHTML = `
+    <h2>Freelancer Forum</h2>
+    <p>The average rate is: $${rateAverage(people)}.</p>
+`;
+
+appData.innerHTML += people.map((person, index) => `
+    <div>
+        <p>${index + 1}: ${person.name} - ${person.occupation} - $${person.price}</p>
+    </div>
+`).join("");

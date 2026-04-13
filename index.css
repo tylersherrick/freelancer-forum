@@ -1,0 +1,17 @@
+body {
+    width: 36%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.even {
+    background-color: lightgrey;
+}
+
+.person {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    margin: 0;
+    border: 1px dotted black;
+}

@@ -37,12 +37,21 @@ const rateAverage = (people) => {
 };
 
 appData.innerHTML = `
-    <h2>Freelancer Forum</h2>
+    <h1>Freelancer Forum</h2>
     <p>The average rate is: $${rateAverage(people)}.</p>
+    <p class="person">
+        <span class="name"><b>NAME</b></span>
+        <span class="job"><b>OCCUPATION</b></span>
+        <span class="rate"><b>RATE</b></span>
+    </p>
 `;
 
 appData.innerHTML += people.map((person, index) => `
     <div>
-        <p>${index + 1}: ${person.name} - ${person.occupation} - $${person.price}</p>
+        <p class="person ${index % 2 === 0 ? "even" : "odd"}">
+            <span class="name">${person.name}</span>
+            <span class="job">${person.occupation}</span>
+            <span class="rate">$${person.price}</span>
+        </p>
     </div>
 `).join("");
